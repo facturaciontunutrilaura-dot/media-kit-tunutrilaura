@@ -1,0 +1,19 @@
+{
+  "name": "media-kit-tunutrilaura",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Media Kit 2026 de Tunutrilaura: web responsive y PDF 16:9 desde una única fuente de contenido.",
+  "type": "module",
+  "scripts": {
+    "fotos": "node scripts/fotos.mjs",
+    "build": "node scripts/build.mjs",
+    "pdf": "node scripts/pdf.mjs",
+    "qa": "node scripts/qa.mjs",
+    "all": "npm run build && npm run pdf && npm run qa",
+    "serve": "npx http-server dist -p 4173 -c-1"
+  },
+  "devDependencies": {
+    "playwright": "1.56.1",
+    "sharp": "^0.34.0"
+  }
+}

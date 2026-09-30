@@ -1,0 +1,30 @@
+{
+  "_ayuda": "Qué foto va en cada página y qué punto de la imagen se conserva al recortar (pos = horizontal vertical). Las fotos nunca se deforman: se recortan.",
+  "portada": {
+    "archivo": "laura-retrato-verde",
+    "alt": "Laura Barbero sonriendo a cámara sobre un fondo verde oliva",
+    "pos": "58% 30%"
+  },
+  "sobreMi": {
+    "archivo": "laura-libro-sonrisa",
+    "alt": "Laura Barbero riendo en su escritorio con un libro abierto",
+    "pos": "52% 20%"
+  },
+  "preguntas": {
+    "archivo": "laura-tarjeta-escritorio",
+    "alt": "Laura Barbero en su escritorio leyendo una tarjeta",
+    "pos": "40% 42%"
+  },
+  "mirada": {
+    "archivo": "laura-videollamada",
+    "alt": "Laura Barbero hablando y gesticulando frente a su portátil",
+    "pos": "50% 40%"
+  },
+  "contacto": {
+    "archivo": "laura-portatil-de-pie",
+    "alt": "Laura Barbero de pie con su portátil, sonriendo a cámara",
+    "pos": "76% 22%",
+    "zoom": 1.32,
+    "posMovil": "80% 12%"
+  }
+}

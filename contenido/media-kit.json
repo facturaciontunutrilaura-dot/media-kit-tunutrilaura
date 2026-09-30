@@ -1,0 +1,169 @@
+{
+  "_ayuda": "Único archivo de texto del Media Kit. Lo que cambies aquí cambia en la web y en el PDF. *palabra* = cursiva rosa de acento · **palabra** = negrita. Después: npm run all",
+
+  "meta": {
+    "titulo": "Media Kit 2026 · Laura Barbero · Tunutrilaura",
+    "descripcion": "Laura Barbero, dietista-nutricionista especializada en trastornos de la conducta alimentaria, relación con la comida e imagen corporal. Media Kit para podcasts, entrevistas, medios, charlas y colaboraciones.",
+    "url": "https://tunutrilaura.com/media-kit/",
+    "pdf": "MediaKit-Tunutrilaura-2026.pdf",
+    "folio": "Media Kit 2026 · Laura Barbero"
+  },
+
+  "portada": {
+    "etiqueta": "Media Kit · 2026",
+    "nombre": "Laura",
+    "apellido": "Barbero",
+    "profesion": "Dietista-nutricionista",
+    "especialidades": [
+      "Trastornos de la conducta alimentaria",
+      "Relación con la comida",
+      "Imagen corporal"
+    ],
+    "pie": ["@tunutrilaura", "tunutrilaura.com"]
+  },
+
+  "vistazo": {
+    "titulo": "De un *vistazo*",
+    "filas": [
+      { "etiqueta": "Quién", "texto": "Laura Barbero Mora. Dietista-nutricionista colegiada, CAT2732 · CoDiNuCat." },
+      { "etiqueta": "A qué me dedico", "texto": "Acompaño a quienes han perdido la paz con la comida, sin poner el peso en el centro y en equipo con psicólogas especializadas." },
+      { "etiqueta": "Especialización", "texto": "Trastornos de la conducta alimentaria, relación con la comida e imagen corporal." },
+      { "etiqueta": "Puedo hablar de", "texto": "TCA · Relación con la comida · Cultura de la dieta · Imagen corporal · Nutrición y redes", "enlace": "#temas" },
+      { "etiqueta": "Formatos", "texto": "Podcast · Entrevistas · Radio y televisión · Charlas y eventos · Colaboraciones", "enlace": "#participar" },
+      { "etiqueta": "Contacto", "texto": "info@tunutrilaura.com · @tunutrilaura", "enlace": "#contacto" }
+    ],
+    "bio": {
+      "etiqueta": "Bio corta",
+      "nota": "Para leer en antena o usar como presentación.",
+      "texto": "Laura Barbero es dietista-nutricionista especializada en trastornos de la conducta alimentaria, relación con la comida e imagen corporal. Graduada en Nutrición Humana y Dietética y con un máster en Nutrición Clínica, acompaña a quienes han perdido la paz con la comida, sin poner el peso en el centro y en equipo con psicólogas especializadas.",
+      "boton": "Copiar bio",
+      "copiado": "Bio copiada"
+    },
+    "indice": "En este media kit"
+  },
+
+  "sobreMi": {
+    "titulo": "Sobre *mí*",
+    "cita": "A los catorce me diagnosticaron un TCA.",
+    "parrafos": [
+      "Me llamo **Laura Barbero** y soy dietista-nutricionista especializada en trastornos de la conducta alimentaria, relación con la comida e imagen corporal.",
+      "A los catorce me diagnosticaron un TCA. Esa vivencia fue la que me llevó a estudiar Nutrición Humana y Dietética, y la que le dio sentido a mi profesión.",
+      "Hoy acompaño a quienes han perdido la paz con la comida, sin poner el peso en el centro y en equipo con psicólogas especializadas."
+    ],
+    "datos": [
+      { "cifra": "+5", "texto": "años en consulta" },
+      { "cifra": "+200", "texto": "mujeres acompañadas" },
+      { "cifra": "100%", "texto": "online, toda España" }
+    ],
+    "pie": "Colegiada CAT2732 · CoDiNuCat"
+  },
+
+  "queEs": {
+    "titulo": "Qué es *Tunutrilaura*",
+    "entradilla": "No es una consulta de nutrición al uso. Es una forma de entender la alimentación que se apoya en cuatro pilares.",
+    "pilares": [
+      { "titulo": "Trastornos de la conducta alimentaria", "texto": "Identificar, acompañar y derivar. Sin dramatizar y sin minimizar." },
+      { "titulo": "Relación con la comida", "texto": "Antes del qué comer está el cómo se vive lo que se come." },
+      { "titulo": "Imagen corporal", "texto": "Cómo miramos nuestro cuerpo determina cómo comemos." },
+      { "titulo": "Psiconutrición", "texto": "Nutrición y psicología de la mano, nunca por separado." }
+    ],
+    "si": {
+      "titulo": "Cómo acompaño",
+      "items": ["Enfoque no centrado en el peso", "Escucha sin juicios", "Nutrición y emoción de la mano", "El ritmo de cada persona"]
+    },
+    "no": {
+      "titulo": "Lo que dejo fuera",
+      "items": ["Dietas y planes cerrados", "El peso como medida del éxito", "Separar lo alimentario de lo emocional", "Culpa o presión sobre el cuerpo"]
+    }
+  },
+
+  "temas": {
+    "titulo": "Temas para *conversar*",
+    "entradilla": "Cualquiera de estos temas se adapta al formato y a la duración del programa.",
+    "bloques": [
+      { "titulo": "TCA", "temas": ["Qué es realmente un TCA y qué no lo es", "Por qué se puede tener un TCA con un peso normal"] },
+      { "titulo": "Relación con la comida", "temas": ["Dónde está la línea entre cuidarse y obsesionarse", "La culpa después de comer: de dónde viene"] },
+      { "titulo": "Cultura de la dieta", "temas": ["Por qué fallan las dietas y a quién le conviene", "Cuando comer sano se convierte en obsesión"] },
+      { "titulo": "Imagen corporal", "temas": ["Comentarios sobre el cuerpo, también los bienintencionados", "Por qué la báscula no es el único indicador de salud"] },
+      { "titulo": "Nutrición y redes", "temas": ["Consejos virales de nutrición y quién responde por ellos", "Cómo leer contenido de nutrición sin agobiarse"] }
+    ]
+  },
+
+  "preguntas": {
+    "titulo": "Preguntas que me podrías *hacer*",
+    "destacada": "¿Qué te hubiera gustado que te dijeran a los catorce años?",
+    "otras": [
+      "¿En qué momento comer saludable deja de ser saludable?",
+      "¿Se puede estar enferma con un peso que parece saludable?",
+      "¿Qué normalizamos socialmente que debería hacernos saltar las alarmas?",
+      "Si las dietas funcionaran, ¿por qué seguimos haciendo dietas?"
+    ],
+    "nota": "Son un punto de partida: el guion lo marcáis vosotros."
+  },
+
+  "mitos": {
+    "titulo": "Mitos que me gustaría *desmontar*",
+    "etiquetaMito": "Mito",
+    "etiquetaRealidad": "En realidad",
+    "lista": [
+      { "mito": "Los TCA se ven a simple vista.", "realidad": "Casi nunca se ven." },
+      { "mito": "Si quisiera, podría dejar de hacerlo.", "realidad": "No es fuerza de voluntad." },
+      { "mito": "Comer sano siempre es sano.", "realidad": "Depende de a qué precio." },
+      { "mito": "Perder peso siempre es una buena noticia.", "realidad": "Depende de cómo y por qué." }
+    ]
+  },
+
+  "mirada": {
+    "titulo": "Mi mirada *profesional*",
+    "principios": [
+      { "etiqueta": "Especialización real", "texto": "Los TCA y la imagen corporal no son una parte de lo que hago: son lo que hago." },
+      { "etiqueta": "Lenguaje claro", "texto": "Explico lo complejo sin tecnicismos y sin titulares engañosos." },
+      { "etiqueta": "Cuidado con el mensaje", "texto": "Cómo se cuenta importa tanto como lo que se cuenta." }
+    ],
+    "formacionTitulo": "Formación",
+    "formacion": [
+      { "sigla": "UAM", "texto": "Grado en Nutrición Humana y Dietética" },
+      { "sigla": "UEM", "texto": "Máster en Nutrición Clínica" },
+      { "sigla": "CAT2732", "texto": "Colegiada · CoDiNuCat" },
+      { "sigla": "TCA", "texto": "Experta en conducta alimentaria y psiconutrición" }
+    ],
+    "formacionExtra": "Formación en imagen corporal y alimentación intuitiva."
+  },
+
+  "participar": {
+    "titulo": "En qué puedo *participar*",
+    "formatos": [
+      { "titulo": "Podcast", "texto": "Como invitada o como voz recurrente." },
+      { "titulo": "Entrevistas", "texto": "Medios escritos y digitales." },
+      { "titulo": "Radio y televisión", "texto": "En directo o grabado." },
+      { "titulo": "Charlas y eventos", "texto": "Ponencias y mesas redondas." },
+      { "titulo": "Colaboraciones", "texto": "Con marcas afines y otros profesionales." }
+    ],
+    "nota": "Cualquier propuesta sobre alimentación, cuerpo y salud mental se valora caso por caso."
+  },
+
+  "testimonios": {
+    "titulo": "Han *dicho*",
+    "lista": [
+      { "texto": "Su enfoque no pesocentrista y sin dietas me ha ayudado con la relación con la comida y con mi cuerpo.", "firma": "Marta O. · Seguimiento mensual" },
+      { "texto": "Me ha ayudado a mejorar mi alimentación, pero sobre todo mi relación con la comida y conmigo misma.", "firma": "Lavie R. · Seguimiento mensual" },
+      { "texto": "En ningún momento te sientes ni juzgada ni presionada: todo fluye con mucha naturalidad.", "firma": "Mitsumi M. · Seguimiento mensual" }
+    ],
+    "nota": "Testimonios reales de pacientes, publicados con su autorización."
+  },
+
+  "contacto": {
+    "etiqueta": "Contacto",
+    "titulo": "¿Un podcast, una entrevista o una *colaboración*?",
+    "subtitulo": "Lo vemos con calma.",
+    "canales": [
+      { "etiqueta": "Email", "texto": "info@tunutrilaura.com", "href": "mailto:info@tunutrilaura.com" },
+      { "etiqueta": "Teléfono", "texto": "+34 680 628 353", "href": "tel:+34680628353" },
+      { "etiqueta": "Web", "texto": "tunutrilaura.com", "href": "https://tunutrilaura.com" },
+      { "etiqueta": "Instagram", "texto": "@tunutrilaura", "href": "https://www.instagram.com/tunutrilaura/" },
+      { "etiqueta": "LinkedIn", "texto": "Laura Barbero Mora", "href": "https://www.linkedin.com/in/laura-barbero-mora" }
+    ],
+    "firma": ["Laura Barbero Mora", "Dietista-nutricionista · CAT2732"],
+    "descargar": "Descargar PDF"
+  }
+}
