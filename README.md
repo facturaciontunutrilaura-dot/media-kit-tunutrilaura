@@ -58,6 +58,10 @@ La dirección definitiva está configurada en `meta.url` del contenido y se usa 
 
 ## Marca
 
+- **Dirección visual clara:** fondos en blanco cálido, crema y rosa palo; el cacao se usa solo en la tipografía. El arco redondeado del sistema de diseño enmarca algunas fotos.
+- Reparto de fotos en `src/fotos.json`: portada (riendo con el libro), De un vistazo (retrato verde en arco), Sobre mí (sofá), Preguntas (tarjeta, en arco), Mirada (videollamada) y Contacto (de pie, en arco).
+- El PDF incrusta las fotos en JPEG a 180–290 ppp y pesa unos 1,3 MB: se puede adjuntar sin problema.
+
 - Nombre en el texto: **Tunutrilaura**. El logo no se modifica.
 - Paleta y tipografías del sistema de diseño "tunutri laura" (Cormorant Garamond + Manrope). Las fuentes están bajo licencia SIL Open Font License y se alojan en el propio proyecto.
 - Fotos: solo retratos de Laura. No se usa ninguna imagen de banco de imágenes.

@@ -1,19 +1,27 @@
 {
-  "_ayuda": "Qué foto va en cada página y qué punto de la imagen se conserva al recortar (pos = horizontal vertical). Las fotos nunca se deforman: se recortan.",
+  "_ayuda": "Qué foto va en cada página y qué punto de la imagen se conserva al recortar (pos = horizontal vertical; posMovil = encuadre en móvil; zoom = acercar en escritorio y PDF). Las fotos nunca se deforman: se recortan.",
   "portada": {
-    "archivo": "laura-retrato-verde",
-    "alt": "Laura Barbero sonriendo a cámara sobre un fondo verde oliva",
-    "pos": "58% 30%"
-  },
-  "sobreMi": {
     "archivo": "laura-libro-sonrisa",
     "alt": "Laura Barbero riendo en su escritorio con un libro abierto",
-    "pos": "52% 20%"
+    "pos": "50% 17%",
+    "posMovil": "62% 18%"
+  },
+  "vistazo": {
+    "archivo": "laura-retrato-verde",
+    "alt": "Laura Barbero sonriendo a cámara sobre un fondo verde oliva",
+    "pos": "58% 26%"
+  },
+  "sobreMi": {
+    "archivo": "laura-sofa",
+    "alt": "Laura Barbero sentada en un sofá con su portátil, sonriendo",
+    "pos": "58% 40%",
+    "posMovil": "60% 34%"
   },
   "preguntas": {
     "archivo": "laura-tarjeta-escritorio",
     "alt": "Laura Barbero en su escritorio leyendo una tarjeta",
-    "pos": "40% 42%"
+    "pos": "38% 60%",
+    "zoom": 1.3
   },
   "mirada": {
     "archivo": "laura-videollamada",
@@ -23,8 +31,8 @@
   "contacto": {
     "archivo": "laura-portatil-de-pie",
     "alt": "Laura Barbero de pie con su portátil, sonriendo a cámara",
-    "pos": "76% 22%",
-    "zoom": 1.32,
-    "posMovil": "80% 12%"
+    "pos": "74% 16%",
+    "zoom": 1.6,
+    "posMovil": "74% 16%"
   }
 }

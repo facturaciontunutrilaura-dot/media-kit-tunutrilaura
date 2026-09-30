@@ -73,8 +73,14 @@ const folio = (i, extra = "") => `
     </footer>`;
 
 // ---------- páginas ----------
+// Numeración: la portada no lleva número; De un vistazo = 01 … Contacto = 09
+const arco = (clave, sizes, clase = "") => `<div class="arco ${clase}"><span class="arco-fondo" aria-hidden="true"></span><div class="arco-foto">${foto(clave, sizes)}</div></div>`;
+
 function portada() {
   const p = c.portada;
+  // El nombre se dibuja dos veces con recorte: sobre la página en su color de marca
+  // y, donde cruza la foto, en cacao, para que el cruce sea legible y deliberado.
+  const nombre = (capa) => `<p class="portada-nombre ${capa}"${capa === "capa-foto" ? ' aria-hidden="true"' : ""}><span>${esc(p.nombre)}</span> <em>${esc(p.apellido)}</em></p>`;
   return `
   <section class="pg pg-portada" id="portada" aria-label="Portada">
     <div class="pg-in">
@@ -82,11 +88,10 @@ function portada() {
         <img class="portada-logo" src="img/logo-tunutrilaura.png" alt="Tunutrilaura" width="600" height="600">
         <p class="etq">${esc(p.etiqueta)}</p>
       </div>
-      <div class="portada-foto">${foto("portada", "(min-width: 1180px) 44vw, 100vw")}
-        <img class="sello" src="img/galleta-256.png" alt="" width="128" height="128">
-      </div>
+      <div class="portada-foto">${foto("portada", "(min-width: 1180px) 60vw, 100vw")}</div>
+      <h1 class="portada-titulo">${nombre("capa-pagina")}${nombre("capa-foto")}</h1>
+      <img class="sello" src="img/galleta-256.png" alt="" width="128" height="128">
       <div class="portada-texto">
-        <h1 class="portada-nombre">${esc(p.nombre)} <em>${esc(p.apellido)}</em></h1>
         <p class="portada-prof">${esc(p.profesion)}</p>
         <ul class="portada-esp">${p.especialidades.map((e) => `<li>${esc(e)}</li>`).join("")}</ul>
       </div>
@@ -97,56 +102,71 @@ function portada() {
 
 function vistazo() {
   const v = c.vistazo;
+  const [quien, dedico, espec, temas, formatos, contacto] = v.filas;
+  const lista = (f, marca) => `
+          <div class="vistazo-lista">
+            <p class="etq">${esc(f.etiqueta)}</p>
+            <ul>${f.texto
+              .split(" · ")
+              .map((x, i) => `<li><span aria-hidden="true">${marca === "n" ? n2(i + 1) : "—"}</span><a href="${f.enlace}">${esc(x)}</a></li>`)
+              .join("")}</ul>
+          </div>`;
   return `
   <section class="pg pg-vistazo" id="vistazo">
     <div class="pg-in">
-      <div class="vistazo-ficha">
-        <h2 class="h">${md(v.titulo)}</h2>
-        <dl class="ficha">${v.filas
-          .map(
-            (f) => `
-          <div><dt class="etq">${esc(f.etiqueta)}</dt><dd>${
-              f.enlace ? `<a href="${f.enlace}">${md(f.texto)}</a>` : md(f.texto)
-            }</dd></div>`
-          )
-          .join("")}
-        </dl>
-      </div>
       <aside class="vistazo-lado">
-        <div class="bio" id="bio">
-          <p class="etq">${esc(v.bio.etiqueta)}</p>
-          <p class="bio-nota">${esc(v.bio.nota)}</p>
-          <p class="bio-texto" id="bio-texto">${md(v.bio.texto)}</p>
-          <button type="button" class="bio-copiar no-print" data-ok="${esc(v.bio.copiado)}">${esc(v.bio.boton)}</button>
-          <span class="bio-estado" role="status" aria-live="polite"></span>
+        ${arco("vistazo", "(min-width: 1180px) 24vw, 70vw")}
+        <div class="vistazo-quien">
+          <p class="etq">${esc(quien.etiqueta)}</p>
+          <p class="quien-texto">${md(quien.texto)}</p>
+          <p class="etq">${esc(contacto.etiqueta)}</p>
+          <p class="quien-contacto"><a href="${contacto.enlace}">${md(contacto.texto)}</a></p>
         </div>
-        <nav class="indice" aria-label="${esc(v.indice)}">
-          <p class="etq">${esc(v.indice)}</p>
-          <ol>${PAGINAS.slice(2)
-            .map(([id, t], i) => `<li><a href="#${id}"><span>${n2(i + 3)}</span>${esc(t)}</a></li>`)
-            .join("")}</ol>
-        </nav>
       </aside>
-    </div>${folio(2)}
+      <div class="vistazo-texto">
+        <h2 class="h">${md(v.titulo)}</h2>
+        <p class="etq vistazo-etq">${esc(espec.etiqueta)}</p>
+        <p class="idea">${md(espec.texto)}</p>
+        <p class="etq vistazo-etq">${esc(dedico.etiqueta)}</p>
+        <p class="cuerpo">${md(dedico.texto)}</p>
+        <div class="vistazo-listas">${lista(temas, "n")}${lista(formatos, "r")}
+        </div>
+        <div class="bio" id="bio">
+          <div class="bio-cab">
+            <p class="etq">${esc(v.bio.etiqueta)}</p>
+            <p class="bio-nota">${esc(v.bio.nota)}</p>
+            <button type="button" class="bio-copiar no-print" data-ok="${esc(v.bio.copiado)}">${esc(v.bio.boton)}</button>
+            <span class="bio-estado" role="status" aria-live="polite"></span>
+          </div>
+          <p class="bio-texto" id="bio-texto">${md(v.bio.texto)}</p>
+        </div>
+      </div>
+      <nav class="indice" aria-label="${esc(v.indice)}">
+        <p class="etq">${esc(v.indice)}</p>
+        <ol>${PAGINAS.slice(2)
+          .map(([id, t], i) => `<li><a href="#${id}"><span>${n2(i + 2)}</span>${esc(t)}</a></li>`)
+          .join("")}</ol>
+      </nav>
+    </div>${folio(1, "folio-vistazo")}
   </section>`;
 }
 
 function sobreMi() {
   const s = c.sobreMi;
   return `
-  <section class="pg pg-sobre" id="sobre-mi">
+  <section class="pg pg-sobre fondo-crema" id="sobre-mi">
     <div class="pg-in">
-      <div class="sobre-foto">${foto("sobreMi", "(min-width: 1180px) 38vw, (min-width: 820px) 42vw, 100vw")}</div>
+      <div class="sobre-foto">${foto("sobreMi", "(min-width: 1180px) 40vw, (min-width: 900px) 42vw, 100vw")}</div>
       <div class="sobre-texto">
         <h2 class="h">${md(s.titulo)}</h2>
         <p class="cita">${md(s.cita)}</p>
         ${s.parrafos.map((p) => `<p class="cuerpo">${md(p)}</p>`).join("\n        ")}
         <ul class="datos">${s.datos
-          .map((d) => `<li><span class="cifra">${esc(d.cifra)}</span><span class="etq">${esc(d.texto)}</span></li>`)
+          .map((d) => `<li><span class="cifra">${esc(d.cifra)}</span><span class="dato-texto">${esc(d.texto)}</span></li>`)
           .join("")}</ul>
         <p class="sobre-pie">${esc(s.pie)}</p>
       </div>
-    </div>${folio(3, "folio-der")}
+    </div>${folio(2, "folio-der")}
   </section>`;
 }
 
@@ -163,49 +183,44 @@ function queEs() {
     <div class="pg-in">
       <header class="quees-cab">
         <h2 class="h">${md(q.titulo)}</h2>
-        <p class="entradilla">${md(q.entradilla)}</p>
+        <p class="idea">${md(q.entradilla)}</p>
       </header>
-      <div class="quees-cuerpo">
-        <ol class="pilares">${q.pilares
-          .map(
-            (p, i) => `
-          <li><span class="romano" aria-hidden="true">${ROMANOS[i]}</span><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></li>`
-          )
-          .join("")}
-        </ol>
-        <div class="posiciones">${lista(q.si, "si")}${lista(q.no, "no")}
-        </div>
+      <ol class="pilares">${q.pilares
+        .map((p, i) => `
+        <li><span class="romano" aria-hidden="true">${ROMANOS[i]}</span><h3>${esc(p.titulo)}</h3><p>${esc(p.texto)}</p></li>`)
+        .join("")}
+      </ol>
+      <div class="posiciones">${lista(q.si, "si")}${lista(q.no, "no")}
       </div>
-    </div>${folio(4)}
+    </div>${folio(3)}
   </section>`;
 }
 
 function temas() {
   const t = c.temas;
   return `
-  <section class="pg pg-temas oscura" id="temas">
+  <section class="pg pg-temas" id="temas">
     <div class="pg-in">
       <header class="temas-cab">
         <h2 class="h">${md(t.titulo)}</h2>
-        <p class="entradilla">${md(t.entradilla)}</p>
+        <p class="idea">${md(t.entradilla)}</p>
+        <img class="temas-galleta" src="img/galleta-512.png" alt="" width="512" height="512">
       </header>
       <ol class="carta">${t.bloques
-        .map(
-          (b, i) => `
-        <li><span class="carta-n">${n2(i + 1)}</span><h3>${esc(b.titulo)}</h3><ul>${b.temas
-            .map((x) => `<li>${esc(x)}</li>`)
-            .join("")}</ul></li>`
-        )
+        .map((b, i) => `
+        <li><span class="carta-n" aria-hidden="true">${n2(i + 1)}</span><div><h3>${esc(b.titulo)}</h3><ul>${b.temas
+          .map((x) => `<li>${esc(x)}</li>`)
+          .join("")}</ul></div></li>`)
         .join("")}
       </ol>
-    </div>${folio(5)}
+    </div>${folio(4, "folio-der")}
   </section>`;
 }
 
 function preguntas() {
   const p = c.preguntas;
   return `
-  <section class="pg pg-preguntas" id="preguntas">
+  <section class="pg pg-preguntas fondo-crema" id="preguntas">
     <div class="pg-in">
       <div class="preguntas-texto">
         <h2 class="h">${md(p.titulo)}</h2>
@@ -213,8 +228,8 @@ function preguntas() {
         <ul class="preguntas">${p.otras.map((q) => `<li>${md(q)}</li>`).join("")}</ul>
         <p class="nota">${md(p.nota)}</p>
       </div>
-      <div class="preguntas-foto">${foto("preguntas", "(min-width: 1180px) 27vw, 100vw")}</div>
-    </div>${folio(6, "folio-izq")}
+      ${arco("preguntas", "(min-width: 1180px) 40vw, 90vw", "preguntas-arco")}
+    </div>${folio(5, "folio-izq")}
   </section>`;
 }
 
@@ -224,22 +239,22 @@ function mitos() {
   return `
   <section class="pg pg-mitos" id="mitos">
     <div class="pg-in">
-      <img class="marca-agua" src="img/galleta-512.png" alt="" width="512" height="512">
-      <h2 class="h">${md(m.titulo)}</h2>
+      <div class="mitos-cab">
+        <h2 class="h">${md(m.titulo)}</h2>
+        <div class="mitos-arco" aria-hidden="true"><img src="img/galleta-256.png" alt="" width="256" height="256"></div>
+      </div>
       <ol class="mitos">${m.lista
-        .map(
-          (x) => `
+        .map((x) => `
         <li>
           <p class="etq">${esc(m.etiquetaMito)}</p>
           <p class="mito">“${esc(x.mito)}”</p>
           ${FLECHA}
           <p class="etq etq-fuerte">${esc(m.etiquetaRealidad)}</p>
           <p class="realidad">${esc(x.realidad)}</p>
-        </li>`
-        )
+        </li>`)
         .join("")}
       </ol>
-    </div>${folio(7)}
+    </div>${folio(6)}
   </section>`;
 }
 
@@ -262,7 +277,7 @@ function mirada() {
           <p class="formacion-extra">${md(m.formacionExtra)}</p>
         </div>
       </div>
-    </div>${folio(8)}
+    </div>${folio(7)}
   </section>`;
 }
 
@@ -285,42 +300,33 @@ function participar() {
           <p class="nota">${md(t.nota)}</p>
         </div>
         ${t.lista
-          .map(
-            (x) => `<figure class="testimonio"><blockquote><p>${esc(x.texto)}</p></blockquote><figcaption>${esc(
-              x.firma
-            )}</figcaption></figure>`
-          )
+          .map((x) => `<figure class="testimonio"><blockquote><p>${esc(x.texto)}</p></blockquote><figcaption>${esc(x.firma)}</figcaption></figure>`)
           .join("\n        ")}
       </div>
-    </div>${folio(9)}
+    </div>${folio(8)}
   </section>`;
 }
 
 function contacto() {
   const k = c.contacto;
   return `
-  <section class="pg pg-contacto" id="contacto">
+  <section class="pg pg-contacto fondo-palo" id="contacto">
     <div class="pg-in">
-      <div class="contacto-foto">${foto("contacto", "(min-width: 1180px) 40vw, 100vw")}</div>
+      ${arco("contacto", "(min-width: 1180px) 60vw, 130vw", "contacto-arco")}
       <div class="contacto-texto">
         <p class="etq">${esc(k.etiqueta)}</p>
         <h2 class="contacto-titulo">${md(k.titulo)}</h2>
         <p class="contacto-sub">${md(k.subtitulo)}</p>
         <ul class="canales">${k.canales
-          .map(
-            (x) =>
-              `<li><span class="etq">${esc(x.etiqueta)}</span><a href="${esc(x.href)}"${
-                x.href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""
-              }>${esc(x.texto)}</a></li>`
-          )
+          .map((x) => `<li><span class="etq">${esc(x.etiqueta)}</span><a href="${esc(x.href)}"${x.href.startsWith("http") ? ' target="_blank" rel="noopener"' : ""}>${esc(x.texto)}</a></li>`)
           .join("")}</ul>
         <div class="contacto-cierre">
-          <img src="img/logo-tunutrilaura.png" alt="Tunutrilaura" width="600" height="600">
+          <span class="contacto-logo"><img src="img/logo-tunutrilaura.png" alt="Tunutrilaura" width="600" height="600"></span>
           <p>${k.firma.map(esc).join("<br>")}</p>
           <a class="descargar no-print" href="${esc(c.meta.pdf)}" download>${esc(k.descargar)}</a>
         </div>
       </div>
-    </div>${folio(10, "folio-izq")}
+    </div>${folio(9, "folio-izq")}
   </section>`;
 }
 

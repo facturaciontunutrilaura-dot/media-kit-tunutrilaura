@@ -33,7 +33,7 @@ if (paginas !== 10) fallos.push(`PDF: ${paginas} páginas (se esperaban 10)`);
       const b = pg.getBoundingClientRect();
       if (Math.round(b.width) !== 1280 || Math.round(b.height) !== 720) out.push(`${pg.id}: tamaño ${b.width}×${b.height}`);
       const folio = pg.querySelector(".folio")?.getBoundingClientRect();
-      pg.querySelectorAll(".pg-in *:not(.marca-agua):not(.sello):not(source)").forEach((el) => {
+      pg.querySelectorAll(".pg-in *:not(.marca-agua):not(.sello):not(.temas-galleta):not(source)").forEach((el) => {
         const e = el.getBoundingClientRect();
         if (!e.width || !e.height || el.closest(".foto")) return;
         const margen = 0.5;

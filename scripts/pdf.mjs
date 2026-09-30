@@ -16,6 +16,9 @@ const ctx = await browser.newContext({ viewport: { width: 1280, height: 720 }, d
 const page = await ctx.newPage();
 await page.emulateMedia({ media: "print" });
 await page.goto(url, { waitUntil: "networkidle" });
+// En el PDF se usan las versiones JPEG: se incrustan tal cual (las WebP se recomprimirían sin pérdida y el PDF pesaría varias veces más)
+await page.evaluate(() => document.querySelectorAll('picture source[type="image/webp"]').forEach((s) => s.remove()));
+await page.waitForLoadState("networkidle");
 await page.evaluate(() => document.fonts.ready);
 await page.evaluate(() => Promise.all([...document.images].map((i) => i.decode().catch(() => {}))));
 await page.pdf({
